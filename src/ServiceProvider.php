@@ -25,7 +25,13 @@ class ServiceProvider extends BaseServiceProvider
     public function boot()
     {
         if (class_exists(Faker::class)) {
-            $faker = $this->app->make(Faker::class);
+            // Laravel >= 9.24
+            if (function_exists('fake')) {
+                $faker = fake();
+            } else {
+                $faker = app()->make(Faker::class);
+            }
+
             $faker->addProvider(new FakerProvider($faker));
         }
     }
