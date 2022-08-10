@@ -16,14 +16,14 @@
     ],
     "homepage": "https://github.com/max13/faker-dateinterval",
     "autoload": {
-        "classmap" : [
-            "src/"
-        ]
+        "psr-4": {
+            "FakerDateInterval\\": "src/"
+        }
     },
     "autoload-dev": {
-        "classmap": [
-            "tests/"
-        ]
+        "psr-4": {
+            "FakerDateInterval\\Tests\\": "tests/"
+        }
     },
     "require": {
         "php": "^7.0 || ^8.0",
